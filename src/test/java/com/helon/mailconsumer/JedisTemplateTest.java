@@ -1,4 +1,4 @@
-package com.helon.mailproducer;
+package com.helon.mailconsumer;
 
 import org.apache.commons.pool2.impl.GenericObjectPoolConfig;
 import org.junit.AfterClass;
@@ -21,7 +21,7 @@ import java.util.*;
  * @Modified By:
  */
 @RunWith(SpringRunner.class)
-@SpringBootTest(classes = MailProducerApplication.class)
+@SpringBootTest(classes = MailConsumerApplication.class)
 public class JedisTemplateTest {
     //单个实例
     private static Jedis jedis;

@@ -1,4 +1,4 @@
-package com.helon.mailproducer;
+package com.helon.mailconsumer;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -10,9 +10,9 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
  * @Modified By:
  */
 @SpringBootApplication
-public class MailProducerApplication {
+public class MailConsumerApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(MailProducerApplication.class, args);
+        SpringApplication.run(MailConsumerApplication.class, args);
     }
 }

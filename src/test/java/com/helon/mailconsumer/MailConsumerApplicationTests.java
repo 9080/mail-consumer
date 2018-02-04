@@ -1,4 +1,4 @@
-package com.helon.mailproducer;
+package com.helon.mailconsumer;
 
 import com.github.pagehelper.PageHelper;
 import com.helon.mail.entity.MstDict;
@@ -16,8 +16,8 @@ import java.sql.Connection;
 import java.util.List;
 
 @RunWith(SpringRunner.class)
-@SpringBootTest(classes = MailProducerApplication.class)
-public class MailProducerApplicationTests {
+@SpringBootTest(classes = MailConsumerApplication.class)
+public class MailConsumerApplicationTests {
 	@Resource(name="masterDataSource")
 	private DataSource masterDataSource;
 	@Resource(name="slaveDataSource")

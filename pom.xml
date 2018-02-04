@@ -4,12 +4,12 @@
 	<modelVersion>4.0.0</modelVersion>
 
 	<groupId>com.helon</groupId>
-	<artifactId>mail-producer</artifactId>
+	<artifactId>mail-consumer</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<packaging>jar</packaging>
 
-	<name>mail-producer</name>
-	<description>Mail producer project for Spring Boot</description>
+	<name>mail-consumer</name>
+	<description>Mail consumer project for Spring Boot</description>
 
 	<parent>
 		<groupId>org.springframework.boot</groupId>
@@ -171,10 +171,14 @@
             <artifactId>spring-boot-configuration-processor</artifactId>
             <optional>true</optional>
         </dependency>
-
+        <!--模板引擎 -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-thymeleaf</artifactId>
+        </dependency>
     </dependencies>
 	<build>
-        <finalName>mail-producer</finalName>
+        <finalName>mail-consumer</finalName>
         <!-- 打包时包含properties、xml -->
         <resources>
             <resource>
