@@ -1,7 +1,7 @@
-package com.helon.mail.config.database.com.helon.mail.helper;
+package com.helon.mail.helper;
 
 import com.helon.mail.constant.Const;
-import com.helon.mail.utils.com.helon.mail.vo.MailData;
+import com.helon.mail.vo.MailData;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.mail.javamail.MimeMessageHelper;

@@ -62,4 +62,15 @@
     </set>
     where SEND_ID = #{sendId,jdbcType=VARCHAR}
   </update>
+
+  <update id="updateByPrimaryKeyAndVersion" parameterType="com.helon.mail.entity.MailSend">
+    update mail_send1
+    SET
+      SEND_STATUS = #{sendStatus,jdbcType=VARCHAR},
+      VERSION = #{version,jdbcType=DECIMAL} + 1,
+    WHERE
+      VERSION = #{version,jdbcType=DECIMAL}
+      AND
+      SEND_ID = #{sendId,jdbcType=VARCHAR}
+  </update>
 </mapper>

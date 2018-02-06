@@ -1,4 +1,4 @@
-package com.helon.mail.utils.com.helon.mail.vo;
+package com.helon.mail.vo;
 
 import java.util.Map;
 

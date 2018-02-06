@@ -11,6 +11,15 @@ public interface MailSend1Mapper extends BaseMapper<MailSend> {
 //    int insertSelective(MailSend record);
 //
     int updateByPrimaryKeySelective(MailSend record);
+
+    /**
+     * @Author: Helon
+     * @Description: 乐观锁更新操作
+     * @param record
+     * @Data: 2018/2/6 21:42
+     * @Modified By:
+     */
+    int updateByPrimaryKeyAndVersion(MailSend record);
 //
 //    int updateByPrimaryKey(MailSend record);
 }
