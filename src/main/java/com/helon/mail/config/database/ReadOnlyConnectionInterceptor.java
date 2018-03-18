@@ -11,6 +11,8 @@ import org.springframework.stereotype.Component;
 /**
  * @Author: Helon
  * @Description: 只读数据源拦截器
+ *      实现Ordered接口，重写getOrder()方法，return值越小优先级越高，表示能优先加载该拦截器
+ *      实现Ordered接口相比没有实现的，优先级都要高，不管顺序值有多大
  * @Data: Created in 2018/1/21 20:56
  * @Modified By:
  */

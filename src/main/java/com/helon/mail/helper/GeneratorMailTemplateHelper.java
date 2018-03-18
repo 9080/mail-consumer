@@ -40,7 +40,7 @@ public class GeneratorMailTemplateHelper {
         String templateLocation = data.getTemplateName();
         String content = templateEngine.process(templateLocation, context);
         data.setContent(content);
-        //调用发送短信接口
+        //调用发送邮件接口
         sendMail(data);
     }
 

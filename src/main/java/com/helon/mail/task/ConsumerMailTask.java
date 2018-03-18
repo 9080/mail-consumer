@@ -30,6 +30,7 @@ public class ConsumerMailTask {
      * @Author: Helon
      * @Description: initialDelay表示服务器启动延迟5开始启动
      *          fixedDelay表示每隔2秒执行一次
+     *          高优先级：隐私、安全、交易
      * @Data: 2018/2/4 21:01
      * @Modified By:
      */
@@ -38,6 +39,40 @@ public class ConsumerMailTask {
         LOGGER.info("[高优先级定时任务]-开始执行...");
         ListOperations<String, String> opsForList = redisTemplate.opsForList();
         String ret = opsForList.leftPop(RedisPriorityQueue.FAST_QUEUE.getCode());
+        if (!StringUtils.isBlank(ret)) {
+            mailSendService.sendMessageOrder(FastJsonConvertUtil.convertJSONToObject(ret, MailSend.class));
+        }
+    }
+
+    /**
+     * @Author: Helon
+     * @Description: 正常优先级 10秒间隔执行一次
+     *  一般是活动、通知类
+     * @Data: 2018/3/18 15:02
+     * @Modified By:
+     */
+    @Scheduled(initialDelay = 10000, fixedDelay = 10000)
+    public void intervalNormal(){
+        LOGGER.info("[一般优先级定时任务]-开始执行...");
+        ListOperations<String, String> opsForList = redisTemplate.opsForList();
+        String ret = opsForList.leftPop(RedisPriorityQueue.NORMAL_QUEUE.getCode());
+        if (!StringUtils.isBlank(ret)) {
+            mailSendService.sendMessageOrder(FastJsonConvertUtil.convertJSONToObject(ret, MailSend.class));
+        }
+    }
+
+    /**
+     * @Author: Helon
+     * @Description: 低优先级 30秒间隔执行一次
+     *  一般是汇总、调查
+     * @Data: 2018/3/18 15:02
+     * @Modified By:
+     */
+    @Scheduled(initialDelay = 30000, fixedDelay = 30000)
+    public void intervalDefer(){
+        LOGGER.info("[低优先级定时任务]-开始执行...");
+        ListOperations<String, String> opsForList = redisTemplate.opsForList();
+        String ret = opsForList.leftPop(RedisPriorityQueue.DEFER_QUEUE.getCode());
         if (!StringUtils.isBlank(ret)) {
             mailSendService.sendMessageOrder(FastJsonConvertUtil.convertJSONToObject(ret, MailSend.class));
         }

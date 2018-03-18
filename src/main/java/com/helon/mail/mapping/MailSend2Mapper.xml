@@ -66,7 +66,7 @@
     update mail_send2
     SET
     SEND_STATUS = #{sendStatus,jdbcType=VARCHAR},
-    VERSION = #{version,jdbcType=DECIMAL} + 1,
+    VERSION = #{version,jdbcType=DECIMAL} + 1
     WHERE
     VERSION = #{version,jdbcType=DECIMAL}
     AND
